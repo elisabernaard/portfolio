@@ -91,7 +91,7 @@ const portfolioProjects = [
         noGap: true,
         imgGroups: [
             ['images/Marateuf2.png', 'images/Marateuf.png'],
-            ['images/Mara2.gif'],
+            ['images/mara2.gif'],
         ],
     },
 
