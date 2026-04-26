@@ -309,11 +309,9 @@ canvas.addEventListener('touchstart', (e) => {
     posX = t.clientX; posY = t.clientY;
     if (bioOpen) {
         closeBio();
-        imgIndex = (imgIndex + 1) % imagesData.length;
         lastDrawX = null; lastDrawY = null;
         return;
     }
-    lastDrawX = null; lastDrawY = null;
 }, { passive: false });
 
 canvas.addEventListener('touchmove', (e) => {
@@ -326,6 +324,7 @@ canvas.addEventListener('touchmove', (e) => {
 canvas.addEventListener('touchend', (e) => {
     if (currentPage !== 1) return;
     e.preventDefault();
+    if (bioOpen) return;
     imgIndex = (imgIndex + 1) % imagesData.length;
     if (imgIndex === 0) reshuffleWithP15();
     lastDrawX = null; lastDrawY = null;
