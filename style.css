@@ -633,9 +633,6 @@ body.poster-open #cursor {
 /* ─────────────────────────────────────────────────────────
    MOBILE (≤ 600px)
 ───────────────────────────────────────────────────────── */
-/* ─────────────────────────────────────────────────────────
-   MOBILE (≤ 600px)
-───────────────────────────────────────────────────────── */
 @media (max-width: 600px) {
     html, body {
         cursor: auto;
@@ -755,20 +752,13 @@ body.poster-open #cursor {
     }
 
     .p2-entry-img {
-        position: relative !important;
         padding: 0 !important;
         margin: 0 12px 8px 12px !important;
         width: calc(100% - 24px) !important;
-        height: auto !important;
-        max-height: 70dvh !important;
-        overflow: hidden !important;
     }
 
-    .p2-entry-img img {
-        position: absolute !important;
-        width: 100% !important;
-        height: 100% !important;
-        object-fit: contain !important;
+    .p2-entry-img > div:first-child {
+        padding-bottom: 100% !important;
     }
 
     .p2-entry-symbol,
