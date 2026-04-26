@@ -728,8 +728,8 @@ body.poster-open #cursor {
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         padding-right: 0;
-        padding-top: env(safe-area-inset-top);
-        padding-bottom: calc(60px + env(safe-area-inset-bottom));
+        padding-top: calc(60px + env(safe-area-inset-top));
+        padding-bottom: calc(80px + env(safe-area-inset-bottom));
     }
 
     .p2-entry {
