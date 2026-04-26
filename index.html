@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elisa Bernard Hollaghan</title>
+    <link rel="icon" type="image/png" href="Star.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Curseur personnalisé -->
+    <div id="cursor"></div>
+
+    <!-- ★ COLONNE GAUCHE FIXE ★ -->
+    <div id="fixed-left">
+        <div class="fl-top">
+            <p class="label">Elisa Bernard Hollaghan <span class="star">★</span> available globally<br>Graphic design + digital and interactive services.</p>
+        </div>
+        <div class="fl-bottom">
+            <p class="footer-desktop" id="infos-btn">
+                <span class="infos-trigger">Infos <span class="star">★</span></span>
+            </p>
+            <p class="footer-mobile" id="infos-btn-mobile">
+                <span class="infos-trigger">Infos <span class="star">★</span></span>
+            </p>
+            <div class="footer-right">
+                <p>For enquiries :<br><a href="mailto:bernard.elisa198@gmail.com">bernard.elisa198@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+
+<!-- Bouton Selected Works (page 1 uniquement) -->
+<div id="selected-works-btn" class="arrow-btn" title="Selected works">
+    <span style="font-size: 13px; letter-spacing: 0.04em; padding: 0 10px; white-space: nowrap;">Selected Works</span>
+</div>
+
+    <!-- Flèches de navigation -->
+    <div id="arrow-down" class="arrow-btn" title="Page suivante">
+        <span class="arrow-label">p<br>o<br>r<br>t<br>f<br>o<br>l<br>i<br>o</span>
+        <svg viewBox="0 0 24 24">
+            <line x1="12" y1="4" x2="12" y2="20"/>
+            <polyline points="6 14 12 20 18 14"/>
+        </svg>
+    </div>
+
+    <div id="arrow-up" class="arrow-btn" title="Page précédente">
+        <span class="arrow-label">back</span>
+        <svg viewBox="0 0 24 24">
+            <line x1="12" y1="20" x2="12" y2="4"/>
+            <polyline points="6 10 12 4 18 10"/>
+        </svg>
+    </div>
+
+    <!-- Bio overlay -->
+    <div id="bio-overlay">
+        <p id="bio-text"></p>
+    </div>
+
+    <!-- Preview poster -->
+    <div id="poster-preview">
+        <img id="poster-preview-img" src="" alt="">
+    </div>
+
+    <!-- Wrapper : navigation verticale -->
+    <div id="wrapper">
+
+        <!-- ══ PAGE 1 ══ -->
+        <div id="page1">
+            <canvas id="drawer"></canvas>
+            <main class="content">
+                <p></p>
+            </main>
+        </div>
+
+       
+        <!-- ══ PAGE 2 — PORTFOLIO ══ -->
+<div id="page2">
+    <canvas id="p2-drawer"></canvas>
+    <div id="p2-scroll">
+        <!-- Généré en JS -->
+    </div>
+</div>
+
+        <!-- ══ PAGE 3 — GALERIE ══ -->
+        <div id="page3">
+            <svg id="scene">
+                <defs id="svgDefs"></defs>
+                <line id="line-tl" class="perspective-line"/>
+                <line id="line-tr" class="perspective-line"/>
+                <line id="line-bl" class="perspective-line"/>
+                <line id="line-br" class="perspective-line"/>
+                <rect id="back-wall" class="wall-outline"/>
+                <g id="frames-container"></g>
+            </svg>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
