@@ -638,6 +638,7 @@ body.poster-open #cursor {
         cursor: auto;
         overflow: hidden;
         height: 100%;
+        min-height: -webkit-fill-available;
         width: 100%;
     }
 
@@ -650,9 +651,9 @@ body.poster-open #cursor {
         width: 80%;
         min-width: unset;
         max-width: unset;
-        height: 100vh;
+        height: 100dvh;
         padding: 16px 14px;
-        padding-bottom: calc(16px + env(safe-area-inset-bottom));
+        padding-bottom: calc(24px + env(safe-area-inset-bottom));
         background: transparent;
         z-index: 5;
         flex-direction: column;
@@ -685,22 +686,19 @@ body.poster-open #cursor {
 
     #page1 {
         padding: 20px 16px 20px calc(42% + 16px);
-        height: 100vh;
+        height: 100dvh;
         min-height: unset;
         justify-content: center;
         overflow: visible;
+        touch-action: none;
+        pointer-events: auto;
     }
 
     #drawer {
         position: fixed;
         inset: 0;
-        pointer-events: none;  /* ← none, comme en desktop */
+        pointer-events: none;
         z-index: 0;
-    }
-
-    #page1 {
-        touch-action: none;
-        pointer-events: auto;
     }
 
     .content {
@@ -716,7 +714,7 @@ body.poster-open #cursor {
     }
 
     #page2 {
-        height: 100vh;
+        height: 100dvh;
         overflow: hidden;
     }
 
@@ -726,7 +724,7 @@ body.poster-open #cursor {
         left: 0;
         right: 0;
         width: 100%;
-        height: 100vh;
+        height: 100dvh;
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
         padding-right: 0;
