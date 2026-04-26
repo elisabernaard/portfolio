@@ -694,8 +694,13 @@ body.poster-open #cursor {
     #drawer {
         position: fixed;
         inset: 0;
+        pointer-events: none;  /* ← none, comme en desktop */
+        z-index: 0;
+    }
+
+    #page1 {
+        touch-action: none;
         pointer-events: auto;
-        z-index: 10;
     }
 
     .content {

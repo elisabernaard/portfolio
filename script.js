@@ -301,32 +301,30 @@ window.addEventListener('click', (e) => {
     lastDrawX = null; lastDrawY = null;
 });
 
-let touchMoved = false;
-
-canvas.addEventListener('touchstart', (e) => {
+document.addEventListener('touchstart', (e) => {
+    if (e.target.closest('.arrow-btn')) return;
+    if (e.target.closest('.infos-trigger')) return;
+    if (e.target.closest('#bio-overlay')) return;
     if (currentPage !== 1) return;
-    e.preventDefault();
     const t = e.touches[0];
     aimX = t.clientX; aimY = t.clientY;
     posX = t.clientX; posY = t.clientY;
     touchMoved = false;
-    if (bioOpen) {
-        closeBio();
-        lastDrawX = null; lastDrawY = null;
-    }
-}, { passive: false });
+    if (bioOpen) { closeBio(); lastDrawX = null; lastDrawY = null; }
+}, { passive: true });
 
-canvas.addEventListener('touchmove', (e) => {
+document.addEventListener('touchmove', (e) => {
     if (currentPage !== 1) return;
-    e.preventDefault();
     const t = e.touches[0];
     aimX = t.clientX; aimY = t.clientY;
     touchMoved = true;
-}, { passive: false });
+}, { passive: true });
 
-canvas.addEventListener('touchend', (e) => {
+document.addEventListener('touchend', (e) => {
+    if (e.target.closest('.arrow-btn')) return;
+    if (e.target.closest('.infos-trigger')) return;
+    if (e.target.closest('#bio-overlay')) return;
     if (currentPage !== 1) return;
-    e.preventDefault();
     if (bioOpen) return;
     if (touchMoved) {
         imgIndex = (imgIndex + 1) % imagesData.length;
@@ -334,7 +332,7 @@ canvas.addEventListener('touchend', (e) => {
         lastDrawX = null; lastDrawY = null;
     }
     touchMoved = false;
-}, { passive: false });
+}, { passive: true });
 
 (function drawLoop() {
     requestAnimationFrame(drawLoop);
