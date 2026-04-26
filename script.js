@@ -577,13 +577,35 @@ function buildImgBlock(imgs, title, autoSlide = false, slideMode = 'clip') {
 
     if (slideMode === 'horizontal' && imgs.length > 1) {
         let autoTimer = null;
+        const slideDuration = isMobile ? 700 : 1050;
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     autoTimer = setTimeout(function slide() {
-                        doHorizontalSlide();
+                        if (turning) { autoTimer = setTimeout(slide, 3500); return; }
+                        turning = true;
+                        const prev = imgEls[counter];
+                        counter = (counter + 1) % imgEls.length;
+                        const curr = imgEls[counter];
+                        curr.style.transition = '';
+                        curr.style.transform = 'translateX(100%)';
+                        curr.style.zIndex = '3';
+                        prev.style.zIndex = '2';
+                        requestAnimationFrame(() => {
+                            curr.style.transition = `transform ${slideDuration}ms cubic-bezier(0.77, 0, 0.175, 1)`;
+                            prev.style.transition = `transform ${slideDuration}ms cubic-bezier(0.77, 0, 0.175, 1)`;
+                            curr.style.transform = 'translateX(0%)';
+                            prev.style.transform = 'translateX(-100%)';
+                        });
+                        if (slideNum) slideNum.textContent = String(counter + 1).padStart(2, '0') + '/' + String(imgEls.length).padStart(2, '0');
+                        setTimeout(() => {
+                            prev.style.transition = '';
+                            prev.style.transform = 'translateX(0%)';
+                            prev.style.zIndex = '1';
+                            turning = false;
+                        }, slideDuration);
                         autoTimer = setTimeout(slide, 3500);
-                    }, 0);
+                    }, isMobile ? 2000 : 0);
                 } else {
                     clearTimeout(autoTimer);
                 }
