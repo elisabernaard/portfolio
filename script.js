@@ -478,7 +478,7 @@ function buildVideoBlock(youtubeUrl) {
 }
 
 /* ── Construit un bloc image (carrousel) ── */
-function buildImgBlock(imgs, title, autoSlide = false, slideMode = 'clip') {
+function buildImgBlock(imgs, title, autoSlide = false, slideMode = 'clip', eager = false) {
     const imgContainer = document.createElement('div');
     imgContainer.className = 'p2-entry-img';
     Object.assign(imgContainer.style, {
@@ -493,7 +493,7 @@ function buildImgBlock(imgs, title, autoSlide = false, slideMode = 'clip') {
     const imgEls = [];
     imgs.forEach((src, i) => {
         const img = document.createElement('img');
-        img.src = src; img.alt = title; img.loading = 'lazy';
+        img.src = src; img.alt = title; img.loading = eager && i === 0 ? 'eager' : 'lazy';
         Object.assign(img.style, {
             position: 'absolute', top: '0', left: '0',
             width: '100%', height: '100%',
@@ -633,7 +633,6 @@ function buildImgBlock(imgs, title, autoSlide = false, slideMode = 'clip') {
 
     return imgContainer;
 }
-
 /* ── Génère les entrées portfolio ── */
 portfolioProjects.forEach((p, index) => {
     const entry = document.createElement('div');
