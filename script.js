@@ -301,12 +301,15 @@ window.addEventListener('click', (e) => {
     lastDrawX = null; lastDrawY = null;
 });
 
+let touchMoved = false;
+
 canvas.addEventListener('touchstart', (e) => {
     if (currentPage !== 1) return;
     e.preventDefault();
     const t = e.touches[0];
     aimX = t.clientX; aimY = t.clientY;
     posX = t.clientX; posY = t.clientY;
+    touchMoved = false;
     if (bioOpen) {
         closeBio();
         lastDrawX = null; lastDrawY = null;
@@ -318,16 +321,26 @@ canvas.addEventListener('touchmove', (e) => {
     if (currentPage !== 1) return;
     e.preventDefault();
     const t = e.touches[0];
-    aimX = t.clientX; aimY = t.clientY;
+    const dx = t.clientX - posX;
+    const dy = t.clientY - posY;
+    if (!touchMoved && dx * dx + dy * dy > 100) {
+        touchMoved = true;
+        lastDrawX = null; lastDrawY = null;
+    }
+    if (touchMoved) {
+        aimX = t.clientX; aimY = t.clientY;
+    }
 }, { passive: false });
 
 canvas.addEventListener('touchend', (e) => {
     if (currentPage !== 1) return;
     e.preventDefault();
     if (bioOpen) return;
+    if (!touchMoved) return;
     imgIndex = (imgIndex + 1) % imagesData.length;
     if (imgIndex === 0) reshuffleWithP15();
     lastDrawX = null; lastDrawY = null;
+    touchMoved = false;
 }, { passive: false });
 
 (function drawLoop() {
