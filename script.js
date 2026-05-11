@@ -370,7 +370,7 @@ Paris × Geneva, HEAD.
 Print-trained. Drawn to edges.
 Branding, editorial, identities, creative coding.
 Typography and images that stick.
-Available everywhere. Open to work.
+Available everywhere. Let's connect.
 
 ★ Click anywhere to continue ★`;
 
@@ -379,7 +379,7 @@ Paris × Geneva, HEAD.
 Print-trained. Drawn to edges.
 Branding, editorial, identities, creative coding.
 Typography and images that stick.
-Available everywhere. Open to work.
+Available everywhere. Let's connect.
 
 ★ Click anywhere to continue ★`;
 
