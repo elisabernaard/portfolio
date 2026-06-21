@@ -17,12 +17,29 @@ const isMobile = window.innerWidth <= 600;
 ───────────────────────────────────────────────────────── */
 const portfolioProjects = [
 
+ 
+
     {
         year: '2026',
         title: 'Heure.Fatale exhibition',
         location: 'Graphic design',
         desc: "Rooted in mail art and independent publishing, the visual identity for Heure.Fatale draws from the Écart collective's stamp archive, blending administrative codes with a playful spirit. In dialogue with MAMCO Geneva and HEAD.",
-        imgs: ['images/image2.jpg', 'images/tampon2.jpg', 'images/OpenCall.jpg'],
+        imgs: ['images/OpenCall.jpg','images/tampon2.jpg','images/HeureFatale2.jpg'],
+        horizontal: true,
+    },
+
+     {
+        year: '2026',
+        title: 'CURIOSITY',
+        location: 'Media Design',
+        desc: "Curiosity reenacts the fictional testament of the Mars rover across three interactive monoliths, where visitors become the God it had been waiting for. The piece questions our enduring desire to animate matter — mineral, mechanical, or coded.",
+        noGap: true,
+        imgGroups: [
+            ['images/Diplome2.jpg'] ,
+            ['images/Diplome1.jpg', 'images/Diplome3.jpg'],  
+            
+            
+        ],
     },
 
     {
@@ -38,6 +55,20 @@ const portfolioProjects = [
         ],
     },
 
+      {
+        
+        year: '2026',
+        title: 'Master Thesis: Post-Digital Book',
+        location: 'Master Thesis, Media Design',
+        desc: "How do digital creations extend the interactive legacy of print while opening up new forms of reading? Unbound: In Search of the Book in the Post-Digital Age is a Master's thesis in Media Design exploring the post-digital book.",
+        noGap: true,
+        imgGroups: [
+            ['images/Masterthesis1.jpg','images/thesis3.jpg','images/thesis4.jpg'],
+            
+        ],
+
+    },
+    
     {
         year: '2025',
         title: 'UN-KRISTMAS',
@@ -366,7 +397,7 @@ document.addEventListener('touchend', (e) => {
    BIO
 ───────────────────────────────────────────────────────── */
 const bioContentDesktop = `Graphic & interactive designer.
-Paris × Geneva, HEAD.
+Paris × Geneva.
 Print-trained. Drawn to edges.
 Branding, editorial, identities, creative coding.
 Typography and images that stick.
@@ -375,7 +406,7 @@ Available everywhere. Let's connect.
 ★ Click anywhere to continue ★`;
 
 const bioContentMobile = `Graphic & interactive designer.
-Paris × Geneva, HEAD.
+Paris × Geneva.
 Print-trained. Drawn to edges.
 Branding, editorial, identities, creative coding.
 Typography and images that stick.
@@ -689,7 +720,7 @@ portfolioProjects.forEach((p, index) => {
 
     const groups = p.imgGroups ?? (p.imgs ? [p.imgs] : []);
     groups.forEach(imgs => {
-        const block = buildImgBlock(imgs, p.title, index === 2, index === 0 ? 'horizontal' : 'clip');
+        const block = buildImgBlock(imgs, p.title, !!p.autoSlide, p.horizontal ? 'horizontal' : 'clip');
         if (p.noGap) {
             block.style.cssText += 'padding: 4px 0 !important;';
         }
