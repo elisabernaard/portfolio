@@ -24,7 +24,7 @@ const portfolioProjects = [
         title: 'Heure.Fatale exhibition',
         location: 'Graphic design',
         desc: "Rooted in mail art and independent publishing, the visual identity for Heure.Fatale draws from the Écart collective's stamp archive, blending administrative codes with a playful spirit. In dialogue with MAMCO Geneva and HEAD.",
-        imgs: ['images/OpenCall.jpg','images/tampon2.jpg','images/HeureFatale2.jpg'],
+        imgs: ['images/HeureFatale2.jpg','images/tampon2.jpg'],
         horizontal: true,
     },
 
@@ -75,6 +75,19 @@ const portfolioProjects = [
         location: 'Graphic design',
         desc: 'Event poster for the UN-KRISTMAS party for Kluster collective. <a href="https://www.instagram.com/p/DCmj7qyAj4M/?img_index=1" target="_blank" rel="noopener" style="color: #ff00ff; font-weight: bold;">@kluster_collectif</a>',
         imgs: ['images/image1.jpg', 'images/image3.jpg'],
+    },
+
+     {
+        year: '2025',
+        title: '3 South&Banana',
+        location: 'Graphic design',
+        desc: 'Album sleeve design for Berlin-based indie solo artist 3South&Banana.',
+       // imgs: ['images/poster14.jpg'],
+       noGap: true,
+        imgGroups: [
+            ['images/poster14.jpg'],
+            ['images/vinyl.jpg'],
+        ],
     },
 
     {
