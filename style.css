@@ -27,6 +27,15 @@ html, body {
     cursor: none;
 }
 
+/* S'assurer que tous les éléments interactifs n'ont pas de curseur système */
+a, button, input, select, textarea {
+    cursor: none;
+}
+
+a:hover, button:hover, input:hover {
+    cursor: none;
+}
+
 /* ─────────────────────────────────────────────────────────
    CURSEUR PERSONNALISÉ
 ───────────────────────────────────────────────────────── */
@@ -326,6 +335,11 @@ body.on-page3 #selected-works-btn {
     height: 100vh;
     background: #fff;
     overflow: hidden;
+    cursor: none;
+}
+
+#page2 * {
+    cursor: none !important;
 }
 
 #p2-scroll {
@@ -402,6 +416,19 @@ body.on-page3 #selected-works-btn {
 
 .p2-entry-img {
     padding: 20px 0;  /* était padding: 20px 24px — on enlève juste le padding gauche/droite */
+    cursor: none;
+}
+
+.p2-entry-img img {
+    cursor: none;
+}
+
+.p2-entry a {
+    cursor: none;
+}
+
+#page2 a {
+    cursor: none;
 }
 
 .p2-slide-num {
